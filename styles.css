@@ -14,7 +14,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: Garamond, serif;
-    overflow: scroll; 
+    overflow: scroll;
     overflow-x: hidden; /* no horizontal scrolling */
     min-height: 100vh; /* body covers whole viewport height */
     height: 100%; /* full height */
@@ -30,17 +30,14 @@ h1 {
 
 .stroke {
     /* gives the title a black border around letters */
-    filter: drop-shadow(3px 0 0 black)
-    drop-shadow(0 3px 0 black)
-    drop-shadow(-3px 0 0 black)
-    drop-shadow(0 -3px 0 black);
+    filter: drop-shadow(3px 0 0 black) drop-shadow(0 3px 0 black) drop-shadow(-3px 0 0 black) drop-shadow(0 -3px 0 black);
 }
 
 div {
     justify-content: center;
 }
 
-input, a{
+input, a {
     border: none;
     color: #a8748a;
     font-family: Garamond, serif;
@@ -58,10 +55,10 @@ input, a{
     border-radius: 25px; /* rounds the border */
 }
 
-input:hover {
-    background-color: #704758;
-    color: white;
-}
+    input:hover {
+        background-color: #704758;
+        color: white;
+    }
 
 #albumCover {
     margin-top: 50px;
@@ -90,3 +87,59 @@ p {
 p.block {
     line-height: 2.33;
 }
+
+/* New style for the "Add New Album" section */
+#addAlbumSection {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#addAlbumForm {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.upload-btn {
+    background-color: #efb7ce;
+    color: #a8748a;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+    .upload-btn:hover {
+        background-color: #704758;
+        color: white;
+    }
+
+.text-box {
+    padding: 8px 16px;
+    font-size: 16px;
+    border: 2px solid #a8748a;
+    border-radius: 25px;
+    background-color: #efb7ce;
+    color: #a8748a;
+}
+
+    .text-box:focus {
+        border-color: #704758;
+        outline: none;
+    }
+
+button {
+    background-color: #a8748a;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+    button:hover {
+        background-color: #704758;
+    }
