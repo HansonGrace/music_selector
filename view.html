@@ -1,112 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Music Selector</title>
-        <link rel="stylesheet" href="styles.css">
-        <script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Music Selector</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.addEventListener("DOMContentLoaded", loadAlbums);
 
-        </script>
-    </head>
-    <body>
-        <h1 class="stroke">All CDs I Own</h1>
-        <p id="numAlbums"></p>
-        <div class="container">
-            <div class="image">
-                <img src="./covers/all_to_zero.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/zero_to_one.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/one_to_all.jpeg" width="70px" height="70px" style="display: block">
-                <img src="./covers/all_to_action.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/action_to_answer.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/fever_part_3.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/movement.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/outlaw.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/will.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/golden_hr_part1.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/golden_hr_part2.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/i_feel.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/2.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/get_up.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/guess_who.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/crazy_in_love.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/checkmate.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/fearless.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/antifragile.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/unforgiven.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/easy.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/crazy.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/armageddon.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/whiplash.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/feel_special.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/eyes_wide_open.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/taste_of_love.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/formula_of_love.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/between_1_2.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/ready_to_be.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/with_youth.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/zone.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/querencia.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/pink_venom.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/princess_pauper.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/wicked.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/dua_lipa.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/future_nostalgia.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/radical_optimism.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/my_everything.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/sweetener.jpg" width="70px" height="70px" style="display: block">
-                <img src="./covers/short_n_sweet.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/brat.png" width="70px" height="70px" style="display: block">
-                <img src="./covers/abba_gold.jpg" width="70px" height="70px" style="display: block">
-            </div>
-            <div class="text">
-                <p class="block">
-                    All to Zero<br>
-                    Zero to One<br>
-                    One to All<br>
-                    All to Action<br>
-                    Action to Answer<br>
-                    Fever Part 3<br>
-                    Movement<br>
-                    Outlaw<br>
-                    Will<br>
-                    Golden Hour: Part 1<br>
-                    Golden Hour: Part 2<br>
-                    I Feel<br>
-                    2<br>
-                    Get Up<br>
-                    Guess Who<br>
-                    Crazy in Love<br>
-                    Checkmate<br>
-                    Fearless<br>
-                    Antifragile<br>
-                    Unforgiven<br>
-                    Easy<br>
-                    Crazy<br>
-                    Armageddon<br>
-                    Whiplash<br>
-                    Feel Special<br>
-                    Eyes Wide Open<br>
-                    Taste of Love<br>
-                    Formula of Love<br>
-                    Between 1&2<br>
-                    Ready to Be<br>
-                    With You-th<br>
-                    Zone<br>
-                    Querencia<br>
-                    Pink Venom<br>
-                    Princess and the Pauper<br>
-                    Wicked<br>
-                    Dua Lipa<br>
-                    Future Nostalgia<br>
-                    Radical Optimism<br>
-                    My Everything<br>
-                    Sweetener<br>
-                    Short n' Sweet<br>
-                    brat<br>
-                    ABBA Gold<br>
-                </p>
-            </div>
-        </div>
-    </body>
+        function loadAlbums() {
+            const albumsContainer = document.querySelector('.container');
+            const albums = JSON.parse(localStorage.getItem("albums")) || [];
+
+            // Update the album count
+            document.getElementById("numAlbums").textContent = `Total Albums: ${albums.length}`;
+
+            // Dynamically generate the album images and names
+            albums.forEach(album => {
+                const albumElement = document.createElement("div");
+                albumElement.classList.add("album");
+
+                const img = document.createElement("img");
+                img.src = album.image;
+                img.alt = album.name;
+                img.width = 70;
+                img.height = 70;
+                albumElement.appendChild(img);
+
+                const name = document.createElement("p");
+                name.textContent = album.name;
+                albumElement.appendChild(name);
+
+                albumsContainer.appendChild(albumElement);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1 class="stroke">All CDs I Own</h1>
+    <p id="numAlbums"></p>
+
+    <div class="container"></div>
+
+    <!-- Back button -->
+    <div>
+        <a class="button" href="music_selector.html">Back to Music Selector</a>
+    </div>
+</body>
 </html>
