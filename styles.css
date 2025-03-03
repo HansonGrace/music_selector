@@ -143,3 +143,25 @@ button {
     button:hover {
         background-color: #704758;
     }
+
+    /* have album and image appear side-by-side*/
+.album-flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .album-flex-container div {
+        display: flex;
+        align-items: center;
+    }
+
+    .album-flex-container img {
+        margin-right: 15px;
+    }
+
+    .album-flex-container p {
+        margin: 0;
+    }
+
