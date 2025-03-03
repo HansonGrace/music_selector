@@ -20,17 +20,31 @@
                 const albumElement = document.createElement("div");
                 albumElement.classList.add("album");
 
+                // Create image and name as separate columns
+                const imgColumn = document.createElement("div");
+                const nameColumn = document.createElement("div");
+
                 const img = document.createElement("img");
                 img.src = album.image;
                 img.alt = album.name;
                 img.width = 70;
                 img.height = 70;
-                albumElement.appendChild(img);
 
                 const name = document.createElement("p");
                 name.textContent = album.name;
-                albumElement.appendChild(name);
 
+                // Append image and name to their respective columns
+                imgColumn.appendChild(img);
+                nameColumn.appendChild(name);
+
+                // Create a flex container for the two columns
+                const flexContainer = document.createElement("div");
+                flexContainer.classList.add("album-flex-container");
+                flexContainer.appendChild(imgColumn);
+                flexContainer.appendChild(nameColumn);
+
+                // Add the flex container to the albums container
+                albumElement.appendChild(flexContainer);
                 albumsContainer.appendChild(albumElement);
             });
         }
@@ -48,3 +62,4 @@
     </div>
 </body>
 </html>
+
