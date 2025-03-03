@@ -7,31 +7,32 @@ function domLoaded() {
     const addAlbumBtn = document.getElementById("addAlbumBtn");
     const albumImageInput = document.getElementById("albumImage");
     const albumNameInput = document.getElementById("albumName");
+    const clearAlbumsBtn = document.getElementById("clearAlbums"); // New clear button
 
     // load the existing albums from localStorage or initialize an empty array
     let albums = JSON.parse(localStorage.getItem("albums")) || [];
 
-    //when randomize is clicked, it will randomly select an album from the array of albums
+    // When randomize is clicked, it will randomly select an album from the array of albums
     randomize.addEventListener("click", () => {
         let albums_length = albums.length;
 
-        //gets a random number from 0 to the length of albums array
+        // gets a random number from 0 to the length of albums array
         let num = Math.floor(Math.random() * albums_length);
 
-        //sets the text for name as the random album
+        // sets the text for name as the random album
         name.textContent = albums[num].name;
 
-        //sets the image for the album cover as the random album's image
+        // sets the image for the album cover as the random album's image
         setAlbumCover(albums[num]);
     });
 
-    //adding a new album
+    // Adding a new album
     addAlbumBtn.addEventListener("click", () => {
         const albumName = albumNameInput.value.trim();
         const albumImageFile = albumImageInput.files[0];
 
         if (albumName && albumImageFile) {
-            //createe a new album object and add it to the albums array
+            // create a new album object and add it to the albums array
             const reader = new FileReader();
             reader.onload = function (event) {
                 let newAlbum = {
@@ -43,11 +44,11 @@ function domLoaded() {
                 albums.push(newAlbum);
                 localStorage.setItem("albums", JSON.stringify(albums));
 
-                //display the new album in the randomizer
+                // display the new album in the randomizer
                 setAlbumCover(newAlbum);
                 name.textContent = newAlbum.name;
 
-                //clears out the inputs
+                // clears out the inputs
                 albumNameInput.value = "";
                 albumImageInput.value = "";
 
@@ -60,15 +61,24 @@ function domLoaded() {
         }
     });
 
-    // function to set the album cover based on album name or image data URL
+    // Function to set the album cover based on album name or image data URL
     function setAlbumCover(album) {
         const albumCover = document.getElementById("albumCover");
 
-        //if the album is an image URL, use it
+        // if the album is an image URL, use it
         if (typeof album === "string") {
             albumCover.src = `./covers/${album}.jpg`;  // fallback for existing albums
         } else {
             albumCover.src = album.image;  // use uploaded image
         }
     }
+
+    // Clear all albums
+    clearAlbumsBtn.addEventListener("click", () => {
+        // Clear albums from localStorage and refresh the page
+        localStorage.removeItem("albums");
+        albums = [];
+        alert("All albums have been cleared.");
+        location.reload(); // reload the page to reset everything
+    });
 }
