@@ -16,7 +16,7 @@
             document.getElementById("numAlbums").textContent = `Total Albums: ${albums.length}`;
 
             // Dynamically generate the album images and names
-            albums.forEach(album => {
+            albums.forEach((album, index) => {
                 const albumElement = document.createElement("div");
                 albumElement.classList.add("album");
 
@@ -33,18 +33,34 @@
                 const name = document.createElement("p");
                 name.textContent = album.name;
 
-                // Append image and name to their respective columns
+                // Create delete button ("X")
+                const deleteBtn = document.createElement("span");
+                deleteBtn.textContent = "X";
+                deleteBtn.classList.add("delete-btn");
+
+                // When delete button is clicked, remove the album from localStorage
+                deleteBtn.addEventListener("click", () => {
+                    albums.splice(index, 1); // Remove the album from the array
+                    localStorage.setItem("albums", JSON.stringify(albums)); // Update localStorage
+                    albumsContainer.removeChild(albumElement); // Remove album from the display
+                    document.getElementById("numAlbums").textContent = `Total Albums: ${albums.length}`; // Update album count
+                });
+
+                // Append image, name, and delete button to their respective columns
                 imgColumn.appendChild(img);
                 nameColumn.appendChild(name);
 
-                // Create a flex container for the two columns
+                // Create a flex container for the two columns (image and name)
                 const flexContainer = document.createElement("div");
                 flexContainer.classList.add("album-flex-container");
                 flexContainer.appendChild(imgColumn);
                 flexContainer.appendChild(nameColumn);
 
-                // Add the flex container to the albums container
+                // Add the delete button to the album element
                 albumElement.appendChild(flexContainer);
+                albumElement.appendChild(deleteBtn);
+
+                // Add album element to the container
                 albumsContainer.appendChild(albumElement);
             });
         }
@@ -62,4 +78,3 @@
     </div>
 </body>
 </html>
-
